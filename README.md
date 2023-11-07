@@ -6,33 +6,32 @@ A web-scraper designed for scraping Indeed's UK website. Other examples of scrap
 
 ## Table of Contents
 
-  
-
-    
 - [Local Setup](#local-setup)
 - [Technologies Used](#technologies-used)
 - [Status](#status)
 - [License](#license)
 
-  
-
 ## Local Setup
 
-  
+### Clone or Download Repository
+
+### ScrapeOps Proxy Config
 
 This scraper uses ScrapeOps Proxy API to rotate proxies.
 
-You can sign up for a free API Key Here
+You can sign up for a free API Key at [scrapeops.io](https://scrapeops.io/app/proxy)
 
-  
+Add your API Key to the settings.py file at line 22.
 
-Add your API Key to the settings.py file like so:
+```python
+settings.py
 
-  
+SCRAPEOPS_API_KEY = 'YOUR_API_KEY_HERE'
+```
 
-This web scraper is setup to export the data as a timestamped CSV file.
+This web scraper is setup to export the data as a timestamped CSV file with Scrapy's feed function. 
 
-  
+### Install Requirements
 
 Install the requirements, a python virtual enviroment is recommended.
 
@@ -52,6 +51,8 @@ Run the spider
 
 ## Technologies Used
 
+Python
+Scrapy
   
 
 ## Status
@@ -59,11 +60,12 @@ Run the spider
 Completed.
 
 If I return to the project I plan to add:
-- Item Class and Pipeline to clean the data returned
+- Item Class and Pipeline to clean the data scraped data, specifically to strip the HTML tags from the job description.
 ## Credits
 
-Adapted from Scrapy Guidebook's Indeed scraper guide.
+Adapted from Scrapy Guidebook's Indeed [scraping guide](https://thepythonscrapyplaybook.com/python-scrapy-indeed-scraper/#bypassing-indeeds-anti-bot-protection)
 
 ## License
 This project is licensed under the MIT License.
 
+You can find the License [here](LICENSE.md)
