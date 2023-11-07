@@ -13,7 +13,7 @@ A web-scraper designed for scraping Indeed's UK website. Other examples of scrap
 
 ## Local Setup
 
-### Clone or Download Repository
+Clone or download the repository.
 
 ### ScrapeOps Proxy Config
 
@@ -32,12 +32,13 @@ SCRAPEOPS_API_KEY = 'YOUR_API_KEY_HERE'
 This web scraper is setup to export the data as a timestamped CSV file with Scrapy's feed function. 
 
 ### Install Requirements
+  
 
-Install the requirements, a python virtual enviroment is recommended.
+Install the requirements, a python virtual environment is recommended.
 
   
 
-`pip install requirements`
+`pip install -r requirements.txt`
 
   
 
