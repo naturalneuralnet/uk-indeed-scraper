@@ -1,7 +1,5 @@
 # About
 
-  
-
 A web-scraper designed for scraping Indeed's UK website. Other examples of scraping indeed did not work properly for the UK version of the site so I built this to fulfill that niche.
 
 ## Table of Contents
@@ -32,30 +30,20 @@ SCRAPEOPS_API_KEY = 'YOUR_API_KEY_HERE'
 This web scraper is setup to export the data as a timestamped CSV file with Scrapy's feed function. 
 
 ### Install Requirements
-  
 
 Install the requirements, a python virtual environment is recommended.
 
-  
-
 `pip install -r requirements.txt`
-
-  
 
 Run the spider
 
-  
-
 `scrapy indeedspider crawl`
-
-  
 
 ## Technologies Used
 
-Python
-Scrapy
+- Python
+- Scrapy
   
-
 ## Status
 
 Completed.
