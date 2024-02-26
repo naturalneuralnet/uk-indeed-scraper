@@ -37,7 +37,7 @@ Install the requirements, a python virtual environment is recommended.
 
 Run the spider
 
-`scrapy indeedspider crawl`
+`scrapy crawl indeedspider`
 
 ## Technologies Used
 
