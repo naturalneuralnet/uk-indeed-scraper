@@ -19,14 +19,15 @@ NEWSPIDER_MODULE = "indeedscraper.spiders"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-SCRAPEOPS_API_KEY = 'YOUR_API_KEY_HERE'
+SCRAPEOPS_API_KEY = 'YOUR API KEY HERE'
 SCRAPEOPS_PROXY_ENABLED = True
 
 DOWNLOADER_MIDDLEWARES = {
     'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
 }
 
-
+FEEDS = { 'data/%(name)s_%(time)s.csv': { 'format': 'csv',}}
+        
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 1
 
