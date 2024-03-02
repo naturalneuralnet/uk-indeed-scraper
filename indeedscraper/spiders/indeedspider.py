@@ -2,7 +2,7 @@ import scrapy
 import re
 import json
 from urllib.parse import urlencode
-
+from bs4 import BeautifulSoup
 
 class IndeedspiderSpider(scrapy.Spider):
     name = "indeedspider"
@@ -18,8 +18,12 @@ class IndeedspiderSpider(scrapy.Spider):
 
 
     def start_requests(self):
-        keyword_list = ['junior react developer -title:senior']
-        location_list = ['London']
+        print("PRINTING LOCATION")
+        # print(self.location)
+        # print(self.keywords)
+        keyword_list = ['junior devops']
+        #keyword_list = [self.keywords]
+        location_list = ["London"]
         for keyword in keyword_list:
             for location in location_list:
                 indeed_jobs_url = self.get_indeed_search_url(keyword, location)
@@ -58,8 +62,9 @@ class IndeedspiderSpider(scrapy.Spider):
             if offset == 0:
                 meta_data = json_blob["metaData"]["mosaicProviderJobCardsModel"]["tierSummaries"]
                 num_results = sum(category["jobCount"] for category in meta_data)
-                number_of_jobs = int(response.css('div.jobsearch-JobCountAndSortPane-jobCount span::text').get().split(' ')[0])
-               
+                number_of_jobs = 10
+                # int(response.css('div.jobsearch-JobCountAndSortPane-jobCount span::text').get().split(' ')[0])
+                
                
                 if number_of_jobs > 80:
                     number_of_jobs = 50
@@ -94,5 +99,7 @@ class IndeedspiderSpider(scrapy.Spider):
                 'jobTitle': job.get('jobInfoHeaderModel').get('jobTitle'),
                 'jobURL': response.meta['jobURL'],
                 'jobRequirements': job_reqs,
-                'jobDescription': job['sanitizedJobDescription']
+                'maxSalary': job.get('estimatedSalary').get('max') if job.get('estimatedSalary') is not None else 0,
+                'minSalary': job.get('estimatedSalary').get('min') if job.get('estimatedSalary') is not None else 0,
+                'jobDescription': ' '.join(BeautifulSoup(job['sanitizedJobDescription'], "html.parser").stripped_strings)
             }
