@@ -1,6 +1,6 @@
 # About
 
-A web-scraper designed for scraping Indeed's UK website. Other examples of scraping indeed did not work properly for the UK version of the site so I built this to fulfill that niche.
+A web-scraper designed specifically for Indeed's UK website. Other scrapers for Indeed.com did not work properly for the UK version of the site. I built this to fulfill that usecase.
 
 ## Table of Contents
 
@@ -31,11 +31,11 @@ This web scraper is setup to export the data as a timestamped CSV file with Scra
 
 ### Install Requirements
 
-Install the requirements, a python virtual environment is recommended.
+Install the requirements, a python virtual environment is recommended:
 
 `pip install -r requirements.txt`
 
-Run the spider
+Run the spider with;
 
 `scrapy crawl indeedspider`
 
@@ -48,8 +48,6 @@ Run the spider
 
 Completed.
 
-If I return to the project I plan to add:
-- Item Class and Pipeline to clean the data scraped data, specifically to strip the HTML tags from the job description.
 ## Credits
 
 Adapted from Scrapy Guidebook's Indeed [scraping guide](https://thepythonscrapyplaybook.com/python-scrapy-indeed-scraper/#bypassing-indeeds-anti-bot-protection)
